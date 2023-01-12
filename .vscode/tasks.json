@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "trademark build: base",
+            "type": "shell",
+            "command":"gcloud builds submit --config=cloudbuild.yaml .",
+            "problemMatcher":[],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            }
+        }
+    ]
+}
+

@@ -1,0 +1,6 @@
+.git/**
+.cloudsql/**
+.gitignore
+.ssh/**
+.vscode/**
+vendor/**

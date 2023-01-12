@@ -1,0 +1,21 @@
+substitutions:
+  _IMAGE_NAME: "gcr.io/${PROJECT_ID}/shinsenter-php-fpm"
+  _SERVICE_NAME: "shinsenter-php-fpm"
+options:
+  dynamic_substitutions: true
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', "${_IMAGE_NAME}", '.']
+# Push the image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', "${_IMAGE_NAME}"]
+# Deploy image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud-slim'
+  args: ['run', 'deploy', "${_SERVICE_NAME}", '--image', "${_IMAGE_NAME}", 
+  '--region', 'us-central1', 
+  '--platform', 'managed', '--allow-unauthenticated',
+  '--max-instances','20','--concurrency','40',
+  '--memory','256M'
+  ]
+timeout: 1800s
