@@ -19,9 +19,6 @@ Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=
 
 1. Using the button
 
-[![Cloud Run Button Demo](assets/cloud-run-button.png)](https://storage.googleapis.com/cloudrun/cloud-run-button.gif)
-
-
 2. If the repo contains a `Dockerfile`, it will be built using the `docker build` command.  
 
 ### Customizing deployment parameters
